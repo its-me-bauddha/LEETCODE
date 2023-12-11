@@ -1,6 +1,6 @@
 class Solution {
 public:
-    string addRE(string num1,int p1, string num2,int p2,int carry=0){
+    string addRE(string& num1,int p1, string& num2,int p2,int carry=0){
         if(p1 < 0 && p2<0){
             if(carry != 0){
                 return string(1,carry + '0');
