@@ -38,6 +38,26 @@ public:
         return dp[n];
 
     }
+
+    int spaceOptimizationSolve(int n){
+        // STEP 1 : make two variables 
+        int prev1 = 0 ;
+        int prev2 = 1 ;
+
+        if(n==0) return prev1;
+        if(n==1) return prev2;
+
+        // STEP 2: 
+        int curr;
+        for(int i=2;i<=n;i++){
+           curr = prev1 + prev2 ;
+           // shifting 
+           prev1 = prev2;
+           prev2 = curr;
+        }
+
+        return curr;
+    }
     int fib(int n) {
         // 1. recursive solution
         // int ans = recursiveSolve(n);
@@ -49,8 +69,12 @@ public:
         // int ans = topDownSolve(n,dp);
         // return ans ;
 
+        // 3. bottom up approach
+        // int ans = bottomUpSolve(n);
+        // return ans;
 
-        int ans = bottomUpSolve(n);
-        return ans;
+
+        // 4. space optimization
+        return spaceOptimizationSolve(n);
     }
 };
